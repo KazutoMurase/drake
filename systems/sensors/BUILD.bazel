@@ -241,6 +241,27 @@ drake_cc_library(
 )
 
 drake_cc_binary(
+    name = "rgbd_camera_rendering_example",
+    srcs = [
+        "rgbd_camera_rendering_example.cc",
+    ],
+    deps = [
+        ":image",
+        ":rgbd_camera",
+        "//common:unused",
+        "//multibody:rigid_body_tree",
+        "//multibody:rigid_body_tree_construction",
+        "//multibody/parsers",
+        "//multibody/rigid_body_plant",
+        "//multibody/rigid_body_plant:drake_visualizer",
+        "//systems/analysis:simulator",
+        "//lcm",
+        "@gflags",
+        "@vtk//:vtkIOImage",
+    ]
+)
+
+drake_cc_binary(
     name = "rgbd_camera_publish_lcm_example",
     srcs = [
         "rgbd_camera_publish_lcm_example.cc",
